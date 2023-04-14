@@ -1,0 +1,1 @@
+from empire.commons.fuzz_util cimport fuzz_util

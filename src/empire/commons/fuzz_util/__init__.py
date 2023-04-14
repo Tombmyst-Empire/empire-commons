@@ -1,0 +1,1 @@
+from empire.commons.fuzz_util.fuzz_util import get_fuzz_average, get_highest_scoring_string
