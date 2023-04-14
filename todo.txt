@@ -1,0 +1,1 @@
+Tout mettre le cython ensemble dans le même module (core), sinon c'est compliqué gérer les dependances.
