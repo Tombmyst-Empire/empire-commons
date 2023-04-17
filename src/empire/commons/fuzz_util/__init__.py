@@ -6,7 +6,6 @@ from empire.commons.core.core import (
     fuzz_util_get_highest_scoring_string,
     fuzz_util_get_fuzz_average
 )
-from empire.commons.fuzz_util.fuzz_util import get_fuzz_average, get_highest_scoring_string
 
 
 def get_highest_scoring_string(
@@ -22,7 +21,7 @@ def get_highest_scoring_string(
     """
     Returns the highest fuzz-scoring *item* in *iterable* using the provided *method*
     """
-    return fuzz_util_get_highest_scoring_string(item, *candidates, method)
+    return fuzz_util_get_highest_scoring_string(item, candidates, method)
 
 
 def get_fuzz_average(
@@ -33,4 +32,5 @@ def get_fuzz_average(
     """
     Returns the average fuzz ratio of *lhs* and *rhs* using the provided *methods*
     """
-    return fuzz_util_get_fuzz_average(lhs, rhs, *methods)
+    methods = tuple(methods)
+    return fuzz_util_get_fuzz_average(lhs, rhs, methods)

@@ -30,7 +30,7 @@ def dict_util_swap_key_values(the_dict: dict[T, U]) -> dict[U, T]: ...
 
 def dict_util_remap(the_dict: dict[T, U], key_map: dict | _GetItem) -> dict[T, U]: ...
 
-def dict_util_get_first_non_null(the_dict: dict[T, U], *fields: T, default: U | None = None) -> U | None: ...
+def dict_util_get_first_non_null(the_dict: dict[T, U], fields: tuple[T, ...], default: U | None = None) -> U | None: ...
 
 def dict_util_try_del(the_dict: dict[T, U], key: T) -> None: ...
 
@@ -38,7 +38,7 @@ def dict_util_try_del(the_dict: dict[T, U], key: T) -> None: ...
 
 def fuzz_util_get_highest_scoring_string(
         item: str,
-        *candidates: str,
+        candidates: tuple[str, ...],
         method: Union[
             fuzz_cpp.ratio,
             fuzz_cpp.token_ratio,
@@ -50,14 +50,14 @@ def fuzz_util_get_highest_scoring_string(
         Returns the highest fuzz-scoring *item* in *iterable* using the provided *method*
         """
 
-def fuzz_util_get_fuzz_average(lhs: str, rhs: str, *methods: Callable[[str, str], float]) -> float:
+def fuzz_util_get_fuzz_average(lhs: str, rhs: str, methods: tuple[Callable[[str, str], float], ...]) -> float:
         """
         Returns the average fuzz ratio of *lhs* and *rhs* using the provided *methods*
         """
 
 # ========================================================================================================================== LIST DICT UTIL
 
-def list_dict_util_keep_root_keys(the_list: list[dict], *keys) -> list[dict]:
+def list_dict_util_keep_root_keys(the_list: list[dict], keys: tuple) -> list[dict]:
         """
         Return a list of dictionaries with only *keys* as keys.
         """

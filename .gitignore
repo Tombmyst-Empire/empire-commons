@@ -1,1 +1,10 @@
 *.html
+build/lib.win-amd64-cpython-311/src/empire/commons/core/core.cp311-win_amd64.pyd
+
+*.obj
+
+src/empire/commons/__pycache__/
+
+src/empire/commons/core/core.c
+
+*.pyc

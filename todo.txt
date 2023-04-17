@@ -1,1 +1,3 @@
-Tout mettre le cython ensemble dans le même module (core), sinon c'est compliqué gérer les dependances.
+- Faire en sorte que tous les modules de commons soient accédés de cette manière:
+    from empire.commons import my_module
+    my_module.my_function

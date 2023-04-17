@@ -116,7 +116,7 @@ cpdef double fuzz_util_get_fuzz_average(
         tuple methods
 ):
     methods = methods or (fuzz_cpp.token_sort_ratio, fuzz_cpp.ratio, fuzz_cpp.token_set_ratio)
-    return math_util_avg([method(lhs, rhs) for method in methods])
+    return math_util_avg(tuple([method(lhs, rhs) for method in methods]))
 
 # ========================================================================================================================== LIST DICT UTIL
 
