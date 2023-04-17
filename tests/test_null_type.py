@@ -15,4 +15,3 @@ def test_null_type():
     assert str(NULL) == repr(NULL) == "NULL"
     assert len(NULL) == 0
     assert bool(NULL) is False
-

@@ -1,5 +1,3 @@
-import logging
-
 import pytest
 
 from empire.commons.exceptions import ProgrammingException

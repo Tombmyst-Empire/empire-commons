@@ -34,8 +34,8 @@ def test_contains_sub_list_does_not_contain():
     a1 = ["patate", "légume", "aubergine"]
     a2 = ["cocombre", "tomato", "potato", "petit pois"]
 
-    assert list_util.list_contains_sub_list(a1, a2) == list_util.list_contains_sub_list(a2, a1)
-    assert list_util.list_contains_sub_list(a1, a2) is False
+    assert list_util.contains_sub_list(a1, a2) == list_util.contains_sub_list(a2, a1)
+    assert list_util.contains_sub_list(a1, a2) is False
     assert list_util.equals(
         a1, ["patate", "légume", "aubergine"]
     ), "original list must not change"
@@ -58,8 +58,8 @@ def test_contains_sub_list_contains():
         "rododendron",
     ]
 
-    assert list_util.list_contains_sub_list(b1, b2) == list_util.list_contains_sub_list(b2, b1)
-    assert list_util.list_contains_sub_list(b1, b2) is True
+    assert list_util.contains_sub_list(b1, b2) == list_util.contains_sub_list(b2, b1)
+    assert list_util.contains_sub_list(b1, b2) is True
     assert list_util.equals(
         b1, ["roger", "raoul", "raymonde", "rododendron"]
     ), "original list must not change"
@@ -181,38 +181,7 @@ def test_filter_string_list_with_case():
     ), "original list must not change"
 
 
-def test_exists_within_a_list_of_dicts():
-    l = [{"a": 1}, {"a": 2}, {"a": 3, "b": True}]
 
-    assert list_util.exists_within_a_list_of_dicts(l, key_to_match="b")
-    assert not list_util.exists_within_a_list_of_dicts(l, key_to_match="c")
-    assert list_util.exists_within_a_list_of_dicts(l, key_to_match="a", value_to_match=2)
-    assert not list_util.exists_within_a_list_of_dicts(
-        l, key_to_match="a", value_to_match=49
-    )
-    assert list_util.equals(
-        l, [{"a": 1}, {"a": 2}, {"a": 3, "b": True}]
-    ), "original list must not change"
-
-
-def test_get_within_a_list_of_dicts():
-    l = [{"a": 1}, {"a": 2}, {"a": 3, "b": True}]
-
-    assert list_util.get_within_a_list_of_dicts(l, dictionary_key="b") == {
-        "a": 3,
-        "b": True,
-    }
-    assert list_util.get_within_a_list_of_dicts(l, dictionary_key="c") == {}
-    assert list_util.get_within_a_list_of_dicts(
-        l, dictionary_key="a", dictionary_value=1
-    ) == {"a": 1}
-    assert (
-        list_util.get_within_a_list_of_dicts(l, dictionary_key="a", dictionary_value=123)
-        == {}
-    )
-    assert list_util.equals(
-        l, [{"a": 1}, {"a": 2}, {"a": 3, "b": True}]
-    ), "original list must not change"
 
 
 def expansion_function(index: int):

@@ -18,7 +18,7 @@ def keep_root_keys(the_list: list[dict], *keys) -> list[dict]:
     """
     Return a list of dictionaries with only *keys* as keys.
     """
-    return list_dict_util_keep_root_keys(the_list, *keys)
+    return list_dict_util_keep_root_keys(the_list, keys)
 
 
 def create_dict_from_list_of_dicts(the_list: list[dict], key: str) -> dict[str, dict]:

@@ -1,6 +1,6 @@
 from rapidfuzz import fuzz_cpp
 from statistics import fmean, mean as py_mean
-from empire.commons.types_ import _NULL
+from empire.commons.types_ import NULL as ENULL
 import re
 import random
 import math
@@ -141,11 +141,11 @@ cpdef dict list_dict_util_create_dict_from_list_of_objects(list the_list, str ke
 cpdef bint list_dict_util_exists_within_a_list_of_dicts(
         list the_list,
         object key_to_match,
-        object value_to_match = _NULL
+        object value_to_match = ENULL
 ):
     for item in the_list:
         if key_to_match in item and (
-            value_to_match is _NULL or item[key_to_match] == value_to_match
+            value_to_match is ENULL or item[key_to_match] == value_to_match
         ):
             return True
     return False
@@ -154,11 +154,11 @@ cpdef bint list_dict_util_exists_within_a_list_of_dicts(
 cpdef dict list_dict_util_get_within_a_list_of_dicts(
         list the_list,
         object dictionary_key,
-        object dictionary_value = _NULL,
-        object default_value = _NULL
+        object dictionary_value = ENULL,
+        object default_value = ENULL
 ):
     for item in the_list:
-        if (dictionary_key in item and dictionary_value is _NULL) or item.get(
+        if (dictionary_key in item and dictionary_value == ENULL) or item.get(
                 dictionary_key
         ) == dictionary_value:
             return item
@@ -292,11 +292,12 @@ cpdef list list_util_expand_left_inplace(
         object filler = None
 ):
     if callable(filler):
-        expansion: list = [filler(i) for i in range(expansion_size)]
+        for i in range(expansion_size):
+            the_list.insert(i, filler(i))
     else:
-        expansion: list = [filler] * expansion_size
+        for _ in range(expansion_size):
+            the_list.insert(0, filler)
 
-    the_list.insert(0, expansion)
     return the_list
 
 

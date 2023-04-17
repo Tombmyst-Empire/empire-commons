@@ -41,7 +41,7 @@ def get_slice_with_most_coverage(
     You have 2 slices: (0, 10) and (10, 20). Reference slice is (8, 18), then
     the slice with most coverage would be the second.
     """
-    return get_slice_with_most_coverage(reference_slice, slice_a, slice_b)
+    return slice_util_get_slice_with_most_coverage(reference_slice, slice_a, slice_b)
 
 
 def get_slice_coverage(
@@ -60,11 +60,14 @@ def get_slice_coverage(
 
 def from_string(
         s: str
-) -> slice | None:
+) -> slice:
     """
     Parses string *s* into a slice object. If the stringified slice does not
     provide an ending bound, *max stop* should be the length of the object
     to slice.
     """
     s = s.replace('[', '').replace(']', '')
-    return slice(*map(lambda x: int(x.strip()) if x.strip() else None, s.split(':')))
+    try:
+        return slice(*map(lambda x: int(x.strip()) if x.strip() else None, s.split(':')))
+    except TypeError:
+        return slice(None, None, None)
