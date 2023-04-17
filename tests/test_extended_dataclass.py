@@ -6,7 +6,7 @@ from bidict import bidict
 from frozendict import frozendict
 
 from empire.commons.extended_dataclass import ExtendedDataclass, to_json
-from empire.commons.list_util import ListUtil
+from empire.commons import list_util
 
 
 @dataclass
@@ -120,9 +120,9 @@ def test_to_json():
     assert j['an_int'] == 123
     assert j['a_list'] == ['a', 'b', {'rogers': 'gontrand'}]
     assert j['a_tuple'] == [[1, 2], [3, 4]]
-    assert ListUtil.equals(j['a_dict']['germaine'], ['gontrand', 'richard'])
+    assert list_util.equals(j['a_dict']['germaine'], ['gontrand', 'richard'])
     assert j['a_dict']['julien'] == 'plante'
-    assert ListUtil.equals(j['a_frozendict']['natacha'], ['gontrand', 'plante'])
-    assert ListUtil.equals(j['a_set'], ['germaine', 'julien'])
-    assert ListUtil.equals(j['a_frozenset'], ['natacha', 'julien'])
+    assert list_util.equals(j['a_frozendict']['natacha'], ['gontrand', 'plante'])
+    assert list_util.equals(j['a_set'], ['germaine', 'julien'])
+    assert list_util.equals(j['a_frozenset'], ['natacha', 'julien'])
     assert j['a_bidict'] == {'henri': 'paulin', 'jacqueline': 'gunther'}

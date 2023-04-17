@@ -1,1 +1,0 @@
-from empire.commons.vector.vec2d cimport Vec2D

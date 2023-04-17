@@ -1,1 +1,0 @@
-cpdef double avg(list data)

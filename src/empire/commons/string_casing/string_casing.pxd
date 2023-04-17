@@ -1,5 +1,0 @@
-cpdef str to_camel_case_strip_spaces(str the_string)
-cpdef str to_camel_case_with_underscores(str the_string)
-cpdef str to_pascal_case_strip_spaces(str the_string)
-cpdef str to_pascal_case_with_underscores(str the_string)
-cpdef str to_upper_case_with_underscores(str the_string)
