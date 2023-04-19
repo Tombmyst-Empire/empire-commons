@@ -8,3 +8,5 @@ src/empire/commons/__pycache__/
 src/empire/commons/core/core.c
 
 *.pyc
+
+.idea/
