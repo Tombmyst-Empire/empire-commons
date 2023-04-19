@@ -1,3 +1,5 @@
-- Faire en sorte que tous les modules de commons soient accédés de cette manière:
+- Modules should be accessed the following way:
     from empire.commons import my_module
     my_module.my_function
+
+- Tests must be extended to the whole project
