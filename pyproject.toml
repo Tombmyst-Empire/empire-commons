@@ -28,7 +28,7 @@ classifiers = [
 ]
 
 [project.optional-dependencies]
-tests = {file="requirements_dev.txt"}
+tests = ["requirements_dev.txt"]
 
 [project.urls]
 "Homepage" = "https://github.com/Tombmyst/empire-commons"
