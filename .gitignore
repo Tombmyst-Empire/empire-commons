@@ -9,4 +9,8 @@ src/empire/commons/core/core.c
 
 *.pyc
 
+*.so
+
+*.o
+
 .idea/
