@@ -1,6 +1,6 @@
 import pytest
 
-from empire.commons.tristate import Tristate
+from empire_commons.tristate import Tristate
 
 
 def test_tristate_truthy():

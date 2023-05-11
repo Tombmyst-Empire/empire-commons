@@ -1,5 +1,5 @@
-from empire.commons.list_util import ListUtil
-from empire.commons.string_util import StringUtil
+from empire_commons.commons.list_util import ListUtil
+from empire_commons.commons.string_util import StringUtil
 
 
 def test_rreplace():

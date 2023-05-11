@@ -1,5 +1,5 @@
 import asyncio
-from empire.commons.async_util.synchronize import synchronize_methods, synchronize_function, synchronize_coroutine
+from empire_commons.async_util import synchronize_methods, synchronize_function, synchronize_coroutine
 
 
 class AsyncClass:

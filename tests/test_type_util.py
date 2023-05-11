@@ -1,6 +1,6 @@
 from frozendict import frozendict
 
-from empire.commons import type_util
+from empire_commons.commons import type_util
 
 
 def test_is_not_empty():

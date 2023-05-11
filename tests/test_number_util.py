@@ -1,4 +1,4 @@
-from empire.commons import number_util
+from empire_commons.commons import number_util
 
 
 def test_cast_string_to_int():

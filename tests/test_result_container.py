@@ -1,7 +1,7 @@
 import pytest
 
-from empire.commons.exceptions import ProgrammingException
-from empire.commons.result_container import ResultContainer
+from empire_commons.commons.exceptions import ProgrammingException
+from empire_commons.commons.result_container import ResultContainer
 
 
 def test_result_container_immutability():

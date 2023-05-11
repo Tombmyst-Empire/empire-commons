@@ -2,7 +2,7 @@ from dataclasses import dataclass
 
 import pytest
 
-from empire.commons import sorting_util
+from empire_commons.commons import sorting_util
 
 
 def test_sort_dict_list_by_another_list():

@@ -1,6 +1,6 @@
 import pytest
 
-from empire.commons import slice_util
+from empire_commons.commons import slice_util
 
 def test_is_in_with_none_inputs():
     with pytest.raises(TypeError):
