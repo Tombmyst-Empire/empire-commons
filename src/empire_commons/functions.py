@@ -1,8 +1,8 @@
 from functools import wraps
 from typing import Any, Callable
 
-from empire_commons.commons.list_util import try_get
-from empire_commons.commons.types_ import NULL
+from empire_commons.list_util import try_get
+from empire_commons.types_ import NULL
 
 
 def dummy(*args, **kwargs):

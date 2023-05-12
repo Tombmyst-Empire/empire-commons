@@ -1,6 +1,6 @@
 from time import time
 
-from empire_commons.commons.throttling import Per, throttler, throttler_decorator
+from empire_commons.throttling import Per, throttler, throttler_decorator
 
 
 def test_throttling_method():

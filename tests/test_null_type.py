@@ -1,6 +1,6 @@
 import pytest
 
-from empire_commons.commons.types_ import NULL
+from empire_commons.types_ import NULL
 
 
 def test_null_type():

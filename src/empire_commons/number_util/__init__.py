@@ -1,7 +1,7 @@
 from contextlib import suppress
 import re
 
-from empire_commons.commons.core.core import (
+from empire_commons.core.core import (
     number_util_to_int
 )
 

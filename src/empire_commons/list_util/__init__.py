@@ -1,6 +1,6 @@
 from typing import TypeVar, Any, Sequence
 
-from empire_commons.commons.core.core import (
+from empire_commons.core.core import (
     list_util_try_get,
     list_util_equals,
     list_util_chunk_list,

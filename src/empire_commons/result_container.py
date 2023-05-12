@@ -7,7 +7,7 @@ from __future__ import annotations
 from copy import copy
 from typing import *
 
-from empire_commons.commons.exceptions import ProgrammingException
+from empire_commons.exceptions import ProgrammingException
 
 SuccessType = TypeVar("SuccessType")
 FailType = TypeVar("FailType")

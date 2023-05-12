@@ -1,6 +1,6 @@
 from typing import Protocol, TypeVar
 
-from empire_commons.commons.core.core import (
+from empire_commons.core.core import (
     dict_util_remap,
     dict_util_try_del,
     dict_util_swap_key_values,

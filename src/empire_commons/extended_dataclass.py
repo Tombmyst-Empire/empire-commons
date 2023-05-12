@@ -10,7 +10,7 @@ from typing import Any, Optional
 from bidict import bidict
 from frozendict import frozendict
 
-from empire_commons.commons.types_ import JsonType, NULL
+from empire_commons.types_ import JsonType, NULL
 
 
 class ExtendedDataclass:

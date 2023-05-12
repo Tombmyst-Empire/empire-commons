@@ -2,7 +2,7 @@ from typing import Union, Callable
 
 from rapidfuzz import fuzz_cpp
 
-from empire_commons.commons.core.core import (
+from empire_commons.core.core import (
     fuzz_util_get_highest_scoring_string,
     fuzz_util_get_fuzz_average
 )

@@ -1,5 +1,5 @@
 from copy import deepcopy
-from empire_commons.commons import list_dict_util, list_util
+from empire_commons import list_dict_util, list_util
 
 
 def test_only_keep_these_root_keys():

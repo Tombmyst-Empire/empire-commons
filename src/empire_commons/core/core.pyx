@@ -1,6 +1,6 @@
 from rapidfuzz import fuzz_cpp
 from statistics import fmean, mean as py_mean
-from empire_commons.commons.types_ import NULL as ENULL
+from empire_commons.types_ import NULL as ENULL
 import re
 import random
 import math

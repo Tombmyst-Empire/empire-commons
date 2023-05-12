@@ -6,7 +6,7 @@ from functools import wraps
 from time import sleep, time
 from typing import Any, Callable
 
-from empire_commons.commons.types_ import NumberType
+from empire_commons.types_ import NumberType
 
 
 class Per(IntEnum):

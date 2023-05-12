@@ -21,7 +21,7 @@ __all__ = [
 
 from typing import Any
 
-from empire_commons.commons.on_error import catch, OnError
+from empire_commons.on_error import catch, OnError
 
 
 class Timestamp:

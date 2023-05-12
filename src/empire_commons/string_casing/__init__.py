@@ -1,4 +1,4 @@
-from empire_commons.commons.core.core import (
+from empire_commons.core.core import (
     string_casing_to_camel_case_strip_spaces,
     string_casing_to_pascal_case_strip_spaces,
     string_casing_to_upper_case_with_underscores,

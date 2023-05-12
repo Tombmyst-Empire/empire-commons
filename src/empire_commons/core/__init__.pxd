@@ -1,1 +1,1 @@
-from empire.commons.core cimport core
+from empire_commons.core cimport core

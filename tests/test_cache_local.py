@@ -1,6 +1,6 @@
 from time import sleep
 
-from empire_commons.commons.cache import Cache
+from empire_commons.cache import Cache
 
 
 def test_cache_service_name():

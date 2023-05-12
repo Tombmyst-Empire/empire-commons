@@ -7,7 +7,7 @@ import os
 from contextlib import suppress
 from typing import Any, Callable, Final
 
-from empire_commons.commons.result_container import ResultContainer
+from empire_commons.result_container import ResultContainer
 
 
 class _LocalCache:

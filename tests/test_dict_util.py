@@ -1,6 +1,6 @@
 import pytest
 
-from empire_commons.commons import dict_util
+from empire_commons import dict_util
 
 
 def test_try_del():

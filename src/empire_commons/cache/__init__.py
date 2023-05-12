@@ -1,1 +1,1 @@
-from empire_commons.commons.cache.cache import Cache, cache_decorator
+from empire_commons.cache.cache import Cache, cache_decorator

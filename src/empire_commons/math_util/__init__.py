@@ -1,6 +1,6 @@
-from empire_commons.commons.types_ import NumberType
+from empire_commons.types_ import NumberType
 
-from empire_commons.commons.core.core import (
+from empire_commons.core.core import (
     math_util_avg,
     math_util_clamp_int,
     math_util_clamp_float

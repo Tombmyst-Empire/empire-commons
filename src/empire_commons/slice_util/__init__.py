@@ -1,4 +1,4 @@
-from empire_commons.commons.core.core import (
+from empire_commons.core.core import (
     slice_util_contains,
     slice_util_number_is_in,
     slice_util_get_slice_coverage,

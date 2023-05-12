@@ -3,8 +3,8 @@ from typing import Any, Callable, TypeVar, Union, Sequence
 
 from rapidfuzz import fuzz_cpp
 
-from empire_commons.commons.types_ import NumberType, NULL
-from empire_commons.commons.vector.vec2d import Vec2D
+from empire_commons.types_ import NumberType, NULL
+# from empire_commons.vector.vec2d import Vec2D
 
 T = TypeVar('T')
 U = TypeVar('U')
@@ -219,13 +219,13 @@ def slice_util_get_slice_with_most_coverage(reference_slice: slice, slice_a: sli
         You have 2 slices: (0, 10) and (10, 20). Reference slice is (8, 18), then
         the slice with most coverage would be the second.
         """
-def slice_util_get_slice_coverage(reference_slice: slice, slice_a: slice, slice_b: slice) -> Vec2D:
-        """
-        Computes the coverage score for *slice_a* and *slice_b* on *reference_slice*.
-        
-        Returns a Vec2D where X is the coverage score for *slice_a* and Y is the coverage
-        score for *slice_b*.
-        """
+# def slice_util_get_slice_coverage(reference_slice: slice, slice_a: slice, slice_b: slice) -> Vec2D:
+#         """
+#         Computes the coverage score for *slice_a* and *slice_b* on *reference_slice*.
+#
+#         Returns a Vec2D where X is the coverage score for *slice_a* and Y is the coverage
+#         score for *slice_b*.
+#         """
 
 # ========================================================================================================================== STRING CASING
 

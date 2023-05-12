@@ -5,8 +5,8 @@ import pytest
 from bidict import bidict
 from frozendict import frozendict
 
-from empire_commons.commons.extended_dataclass import ExtendedDataclass, to_json
-from empire_commons.commons import list_util
+from empire_commons.extended_dataclass import ExtendedDataclass, to_json
+from empire_commons import list_util
 
 
 @dataclass

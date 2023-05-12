@@ -1,4 +1,4 @@
-from empire_commons.commons import fuzz_util
+from empire_commons import fuzz_util
 
 
 def test_get_highest_scoring():

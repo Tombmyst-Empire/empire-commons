@@ -1,4 +1,4 @@
-from empire_commons.commons.functions import returns_on_falsy_first_parameter
+from empire_commons.functions import returns_on_falsy_first_parameter
 
 
 @returns_on_falsy_first_parameter

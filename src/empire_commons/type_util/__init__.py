@@ -1,1 +1,1 @@
-from empire_commons.commons.type_util.type_util import *
+from empire_commons.type_util.type_util import *

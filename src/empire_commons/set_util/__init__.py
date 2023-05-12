@@ -1,6 +1,6 @@
 from typing import TypeVar
 
-from empire_commons.commons.core.core import set_util_contains_sub_set
+from empire_commons.core.core import set_util_contains_sub_set
 
 
 T = TypeVar('T')

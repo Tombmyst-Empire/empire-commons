@@ -1,1 +1,1 @@
-from empire_commons.commons.exceptions.exceptions import *
+from empire_commons.exceptions.exceptions import *

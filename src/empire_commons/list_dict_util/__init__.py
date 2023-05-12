@@ -1,8 +1,8 @@
 from typing import TypeVar, Any
 
-from empire_commons.commons.types_ import NULL
+from empire_commons.types_ import NULL
 
-from empire_commons.commons.core.core import (
+from empire_commons.core.core import (
     list_dict_util_keep_root_keys,
     list_dict_util_create_dict_from_list_of_dicts,
     list_dict_util_create_dict_from_list_of_objects,

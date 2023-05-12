@@ -5,10 +5,10 @@ import re
 import string
 from typing import Sequence, Any
 
-from empire_commons.commons import string_casing
-from empire_commons.commons.regex_util import RegexUtil
-from empire_commons.commons.reference_data.unicode_transliteration import standard_transliterate
-from empire_commons.commons.regexes import MATCH_CONTENTS_FROM_PARENTHESES_REGEX, MATCH_WORDS_REGEX, MATCH_NON_WORD_CHARACTERS_REGEX, \
+from empire_commons import string_casing
+from empire_commons.regex_util import RegexUtil
+from empire_commons.reference_data.unicode_transliteration import standard_transliterate
+from empire_commons.regexes import MATCH_CONTENTS_FROM_PARENTHESES_REGEX, MATCH_WORDS_REGEX, MATCH_NON_WORD_CHARACTERS_REGEX, \
     MATCH_ALL_BRACKETS_AND_CONTENTS_REGEX, MATCH_LEADING_NON_WORD_CHARACTERS_REGEX, MATCH_TRAILING_NON_WORD_CHARACTERS_REGEX
 
 

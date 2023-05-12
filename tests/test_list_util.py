@@ -1,4 +1,4 @@
-from empire_commons.commons import list_util
+from empire_commons import list_util
 
 
 def test_equals():

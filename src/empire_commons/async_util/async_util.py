@@ -1,7 +1,7 @@
 import asyncio
 from typing import Coroutine, Sequence, TypeVar
 
-from empire_commons.commons import list_util
+from empire_commons import list_util
 
 T = TypeVar('T')
 U = TypeVar('U')
