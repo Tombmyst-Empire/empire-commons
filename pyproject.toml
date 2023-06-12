@@ -27,6 +27,15 @@ classifiers = [
     "Topic :: Utilities",
     "Typing :: Typed"
 ]
+dependencies = [
+    "bidict~=0.22.1",
+    "Cython~=3.0.0b1",
+    "diskcache~=5.5.1",
+    "frozendict~=2.3.7",
+    "python-dateutil~=2.8.2",
+    "rapidfuzz~=2.15.1",
+    "regex~=2023.3.23"
+]
 
 [project.optional-dependencies]
 tests = ["requirements_dev.txt"]
