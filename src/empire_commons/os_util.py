@@ -25,3 +25,8 @@ def os_name() -> OSNames:
 
 def os_name_OLD() -> str:
     return platform.system().lower()
+    
+
+___WINDOWS___: Final[bool] = True if os_name() == 'windows' else False
+___MAC___: Final[bool] = True if os_name() == 'mac' else False
+___LINUX___: Final[bool] = True if os_name() == 'linux' else False
