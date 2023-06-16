@@ -7,7 +7,10 @@ except ImportError:
 
 __all__ = [
     'OSNames',
-    'os_name'
+    'os_name',
+    '___WINDOWS___',
+    '___MAC___',
+    '___LINUX___'
 ]
 
 

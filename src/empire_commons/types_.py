@@ -8,6 +8,7 @@ __all__ = [
     'ListLikeType',
     'StringListLikeType',
     'DictListLikeType',
+    'FileDescriptor',
     'NULL'
 ]
 
