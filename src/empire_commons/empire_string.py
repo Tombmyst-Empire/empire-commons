@@ -3,7 +3,7 @@ from __future__ import annotations
 import random
 import re
 import string
-from typing import Sequence, Any
+from typing import Sequence, Any, Final
 
 from empire_commons import string_casing
 from empire_commons.regex_util import RegexUtil
@@ -40,6 +40,9 @@ class String(str):
             amount = 0
 
         return String(string * amount)
+
+    @staticmethod
+    def quote():
 
     # =========================================================================================== CONTAINS
     def contains_any_of(self, *what: str, case_sensitive: bool = True) -> bool:

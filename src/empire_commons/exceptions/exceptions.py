@@ -11,7 +11,7 @@ __all__ = [
     'UnknownValueException',
     'UnexpectedCoreException',
     'UnexpectedTypeException',
-    'UnexpectedStateException'
+    'UnexpectedException'
 ]
 
 
@@ -57,6 +57,6 @@ class UnexpectedCoreException(EmpireException):
         super().__init__(f'Unexpected Core Error: {message}')
         
 
-class UnexpectedStateException(EmpireException):
+class UnexpectedException(EmpireException):
     def __init__(self, message: str):
         super().__init__(f'Unexpected state: {message}')
