@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import os
 import random
 import re
 import string
@@ -30,7 +31,7 @@ class String(str):
         return String(random_string.lower() if lowercase else random_string)
 
     @staticmethod
-    def times(string: str, amount: int) -> String:
+    def times(string: str | 'String', amount: int) -> String:
         """
         Returns *string* * *amount*.
 
@@ -42,10 +43,21 @@ class String(str):
         return String(string * amount)
 
     @staticmethod
-    def quote():
+    def quote(string: str | 'String') -> String:
+        if "'" not in string:
+            return String(f"'{string}'")
+        elif '"' not in string:
+            return String(f'"{string}"')
+        elif "'''" not in string:
+            return String(f"'''{string}'''")
+        elif '"""' not in string:
+            return String(f'"""{string}"""')
+        else:
+            string = string.replace("'", "\\'").replace('"', '\\"')
+            return String(string)
 
     # =========================================================================================== CONTAINS
-    def contains_any_of(self, *what: str, case_sensitive: bool = True) -> bool:
+    def contains_any_of(self, *what: str | 'String', case_sensitive: bool = True) -> bool:
         """
         Returns True if *the_string* contains any of *what*.
         """
@@ -79,7 +91,7 @@ class String(str):
     # ============================================================================================ JOINING
     @staticmethod
     def join_non_nulls_non_empty(
-        strings: list[str], separator: str
+        strings: list[str | 'String'], separator: str | 'String'
     ) -> String:  # TODO: improve
         result: str = ""
         for s in strings:
@@ -89,14 +101,14 @@ class String(str):
         return String(result[0 : -len(separator)])
 
     # ========================================================================================== REPLACEMENT
-    def rreplace(self, replacee: str, replacement: str = '', count: int = 1) -> String:
+    def rreplace(self, replacee: str | 'String', replacement: str | 'String' = '', count: int = 1) -> String:
         """
         Replaces starting from the right of string.
         """
         # src: https://stackoverflow.com/questions/9943504/right-to-left-string-replace-in-python
         return String(replacement.join(self.rsplit(replacee, count)))
 
-    def replace_all(self, *replacees: str, replacement: str = "") -> String:
+    def replace_all(self, *replacees: str | 'String', replacement: str | 'String' = "") -> String:
         """
         Replaces all occurrences of *replacees* to *replacement* in *input_string*
         """
@@ -106,14 +118,14 @@ class String(str):
 
         return String(string)
 
-    def replace_all_except_alpha_numerical_characters(self, *, with_: str = '') -> String:
+    def replace_all_except_alpha_numerical_characters(self, *, with_: str | 'String' = '') -> String:
         """
         Replace all non-alpha numerical characters with the specified replacement string.
         """
         return String(MATCH_NON_WORD_CHARACTERS_REGEX.sub(with_, self))
 
     def replace_brackets_and_content(
-        self, *, with_: str = ''
+        self, *, with_: str | 'String' = ''
     ) -> String:
         """
         Replaces (), [], {}, <> and whatever they contain with the specified replacement string.
@@ -122,7 +134,7 @@ class String(str):
             with_, self
         ))
 
-    def replace_characters(self, *characters_to_replace: str, with_: str = '') -> String:
+    def replace_characters(self, *characters_to_replace: str | 'String', with_: str | 'String' = '') -> String:
         """
         Replace all specified characters with the specified replacement string.
         """
@@ -132,7 +144,7 @@ class String(str):
     def replace_leading_non_word_characters(
             self,
             *,
-            with_: str = ' '
+            with_: str | 'String' = ' '
     ) -> String:
         """
         Replaces all leading non-word characters with the specified replacement string up to the first word character
@@ -142,7 +154,7 @@ class String(str):
     def replace_trailing_non_word_characters(
             self,
             *,
-            with_: str = ''
+            with_: str | 'String' = ''
     ) -> String:
         """
         Replaces all trailing non-word characters with the specified replacement string from the last word character
@@ -152,7 +164,7 @@ class String(str):
     def replace_trailing_words(
             self,
             *words: str,
-            with_: str = '',
+            with_: str | 'String' = '',
     ) -> String:
         """
         Replace all trailing words with the specified replacement string.
@@ -164,7 +176,7 @@ class String(str):
         )
         return String(pattern.sub(with_, self))
 
-    def replace_words(self, *words: str, with_: str = '', ignore_case: bool = False) -> String:
+    def replace_words(self, *words: str | 'String', with_: str | 'String' = '', ignore_case: bool = False) -> String:
         """
         Replace all specified words with the specified replacement string.
         """
@@ -178,7 +190,7 @@ class String(str):
         return String(regex.sub(with_, self))
 
     # ========================================================================================== SEARCH
-    def index_of(self, substring: str, after_occurrences: int) -> int:
+    def index_of(self, substring: str | 'String', after_occurrences: int) -> int:
         """
         Returns the index of *substring* in *full_string* after *after_occurrences* occurrences.
 
@@ -224,6 +236,10 @@ class String(str):
         """
         # doc-src: https://stackoverflow.com/questions/354038/how-do-i-check-if-a-string-is-a-number-float
         return self.replace(".", "", 1).isdigit()
+
+    def tess(self) -> str:
+        import inspect
+        return inspect.currentframe().f_back.f_lineno
 
 
 if __name__ == '__main__':

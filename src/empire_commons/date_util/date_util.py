@@ -61,6 +61,18 @@ class Timestamp:
                                        f'%H{time_separator}%M{time_separator}%S')
 
     @staticmethod
+    def to_yyyy_mm_dd_hh_ii_ss_ffff(
+            timestamp: int,
+            date_separator: str = '-',
+            datetime_separator: str = ' ',
+            time_separator: str = ':',
+            sub_second_separator: str = ','
+    ) -> str:
+        return datetime.fromtimestamp(timestamp).strftime(f'%Y{date_separator}%m{date_separator}%d'
+                                                          f'{datetime_separator}'
+                                                          f'%H{time_separator}%M{time_separator}%S{sub_second_separator}%f')
+
+    @staticmethod
     def to_yy_mm_dd_hh_ii_ss(
             timestamp: int,
             date_separator: str = '-',
@@ -70,6 +82,18 @@ class Timestamp:
         return datetime.fromtimestamp(timestamp).strftime(f'%y{date_separator}%m{date_separator}%d'
                                        f'{datetime_separator}'
                                        f'%H{time_separator}%M{time_separator}%S')
+
+    @staticmethod
+    def to_yy_mm_dd_hh_ii_ss_ffff(
+            timestamp: int,
+            date_separator: str = '-',
+            datetime_separator: str = ' ',
+            time_separator: str = ':',
+            sub_second_separator: str = ','
+    ) -> str:
+        return datetime.fromtimestamp(timestamp).strftime(f'%y{date_separator}%m{date_separator}%d'
+                                                          f'{datetime_separator}'
+                                                          f'%H{time_separator}%M{time_separator}%S{sub_second_separator}%f')
 
     @staticmethod
     def to_dd_mm_yyyy_hh_ii_ss(
@@ -83,6 +107,18 @@ class Timestamp:
                                        f'%H{time_separator}%M{time_separator}%S')
 
     @staticmethod
+    def to_dd_mm_yyyy_hh_ii_ss_ffff(
+            timestamp: int,
+            date_separator: str = '-',
+            datetime_separator: str = ' ',
+            time_separator: str = ':',
+            sub_second_separator: str = ','
+    ) -> str:
+        return datetime.fromtimestamp(timestamp).strftime(f'%d{date_separator}%m{date_separator}%Y'
+                                                          f'{datetime_separator}'
+                                                          f'%H{time_separator}%M{time_separator}%S{sub_second_separator}%f')
+
+    @staticmethod
     def to_dd_mm_yy_hh_ii_ss(
             timestamp: int,
             date_separator: str = '-',
@@ -92,6 +128,18 @@ class Timestamp:
         return datetime.fromtimestamp(timestamp).strftime(f'%d{date_separator}%m{date_separator}%y'
                                        f'{datetime_separator}'
                                        f'%H{time_separator}%M{time_separator}%S')
+
+    @staticmethod
+    def to_dd_mm_yy_hh_ii_ss_ffff(
+            timestamp: int,
+            date_separator: str = '-',
+            datetime_separator: str = ' ',
+            time_separator: str = ':',
+            sub_second_separator: str = ','
+    ) -> str:
+        return datetime.fromtimestamp(timestamp).strftime(f'%d{date_separator}%m{date_separator}%y'
+                                                          f'{datetime_separator}'
+                                                          f'%H{time_separator}%M{time_separator}%S{sub_second_separator}%f')
 
 
 def is_datetime(value: str) -> bool:
@@ -147,6 +195,17 @@ def current_yyyy_mm_dd_hh_ii_ss(
                                    f'%H{time_separator}%M{time_separator}%S')
 
 
+def current_yyyy_mm_dd_hh_ii_ss_ffff(
+        date_separator: str = '-',
+        datetime_separator: str = ' ',
+        time_separator: str = ':',
+        sub_second_separator: str = ','
+) -> str:
+    return datetime.now().strftime(f'%Y{date_separator}%m{date_separator}%d'
+                                   f'{datetime_separator}'
+                                   f'%H{time_separator}%M{time_separator}%S{sub_second_separator}%f')
+
+
 def current_yy_mm_dd_hh_ii_ss(
         date_separator: str = '-',
         datetime_separator: str = ' ',
@@ -155,6 +214,17 @@ def current_yy_mm_dd_hh_ii_ss(
     return datetime.now().strftime(f'%y{date_separator}%m{date_separator}%d'
                                    f'{datetime_separator}'
                                    f'%H{time_separator}%M{time_separator}%S')
+
+
+def current_yy_mm_dd_hh_ii_ss_ffff(
+        date_separator: str = '-',
+        datetime_separator: str = ' ',
+        time_separator: str = ':',
+        sub_second_separator: str = ','
+) -> str:
+    return datetime.now().strftime(f'%y{date_separator}%m{date_separator}%d'
+                                   f'{datetime_separator}'
+                                   f'%H{time_separator}%M{time_separator}%S{sub_second_separator}%f')
 
 
 def current_dd_mm_yyyy_hh_ii_ss(
@@ -167,6 +237,17 @@ def current_dd_mm_yyyy_hh_ii_ss(
                                    f'%H{time_separator}%M{time_separator}%S')
 
 
+def current_dd_mm_yyyy_hh_ii_ss_ffff(
+        date_separator: str = '-',
+        datetime_separator: str = ' ',
+        time_separator: str = ':',
+        sub_second_separator: str = ','
+) -> str:
+    return datetime.now().strftime(f'%d{date_separator}%m{date_separator}%Y'
+                                   f'{datetime_separator}'
+                                   f'%H{time_separator}%M{time_separator}%S{sub_second_separator}%f')
+
+
 def current_dd_mm_yy_hh_ii_ss(
         date_separator: str = '-',
         datetime_separator: str = ' ',
@@ -175,3 +256,14 @@ def current_dd_mm_yy_hh_ii_ss(
     return datetime.now().strftime(f'%d{date_separator}%m{date_separator}%y'
                                    f'{datetime_separator}'
                                    f'%H{time_separator}%M{time_separator}%S')
+
+
+def current_dd_mm_yy_hh_ii_ss_ffff(
+        date_separator: str = '-',
+        datetime_separator: str = ' ',
+        time_separator: str = ':',
+        sub_second_separator: str = ','
+) -> str:
+    return datetime.now().strftime(f'%d{date_separator}%m{date_separator}%y'
+                                   f'{datetime_separator}'
+                                   f'%H{time_separator}%M{time_separator}%S{sub_second_separator}%f')
