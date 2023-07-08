@@ -1,4 +1,6 @@
 import platform
+from typing import Final
+
 try:
     from enum import StrEnum
 except ImportError:
