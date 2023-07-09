@@ -14,6 +14,9 @@ from empire_commons.regexes import MATCH_CONTENTS_FROM_PARENTHESES_REGEX, MATCH_
 
 
 class String(str):
+    NL: Final[str] = '\n'
+    TAB: Final[str] = '\t'
+
     # ======================================================================================== STATIC BUILDERS
     @staticmethod
     def build_empire_strings_from_sequence_strip_nones(sequence: Sequence[Any]) -> list[String]:
