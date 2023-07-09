@@ -47,6 +47,8 @@ cpdef list list_util_rotate_right(list the_list, unsigned int rotation_size)
 cpdef list list_util_chunk_list(list the_list, unsigned int chunk_size)
 cpdef void list_util_append_if(list the_list, bint condition, object value)
 
+cpdef list list_util_merge_lists(list lists)
+
 # ========================================================================================================================== NUMBER UTIL
 
 cpdef int number_util_to_int(str s, int default = *, bint strip_non_numeric_chars = *)

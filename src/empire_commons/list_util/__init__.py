@@ -14,7 +14,8 @@ from empire_commons.core.core import (
     list_util_expand_left_inplace,
     list_util_expand_right_inplace,
     list_util_generate_random_list_of_ints,
-    list_util_filter_list_of_strings
+    list_util_filter_list_of_strings,
+    list_util_merge_lists
 )
 
 T = TypeVar('T')
@@ -168,3 +169,9 @@ def zip_flattened(*items_to_zip: list) -> list:
         # [(1, 2), (3, 4), (5, 6)]
     """
     return [sub_zip for zipped in zip(*items_to_zip) for sub_zip in zipped]
+
+def merge_lists(*lists: list[T]) -> list[T]:
+    """
+    Merges all the provided lists into a single one.
+    """
+    return list_util_merge_lists(list(lists))

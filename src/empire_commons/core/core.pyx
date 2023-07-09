@@ -334,6 +334,15 @@ cpdef void list_util_append_if(list the_list, bint condition, object value):
     if condition:
         the_list.append(value)
 
+cpdef list list_util_merge_lists(
+        list lists
+):
+    cdef list result = []
+    for a_list in lists:
+        result.extend(a_list)
+
+    return result
+
 # ========================================================================================================================== NUMBER UTIL
 
 cpdef int number_util_to_int(str s, int default = 0, bint strip_non_numeric_chars = False):

@@ -181,6 +181,10 @@ def list_util_append_if(the_list: list[T], condition: bool, value: T):
     Appends *value* to *the_list* if *condition* is true
     """
 
+def list_util_merge_lists(lists: list[list[T]]) -> list[T]:
+    """
+    Merges all the provided lists into a single one.
+    """
 
 # ========================================================================================================================== NUMBER UTIL
 
