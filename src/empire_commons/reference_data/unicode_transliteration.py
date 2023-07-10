@@ -6,7 +6,7 @@ from frozendict import frozendict
 
 
 # using: https://www.fileformat.info/info/charset/UTF-8/list.htm
-from empire_commons.functions import returns_on_falsy_first_parameter
+from empire_commons.decorators import returns_on_falsy_first_parameter
 
 unicode_transliteration_mapping: frozendict[str, str] = frozendict({
     '™': ' tm',
