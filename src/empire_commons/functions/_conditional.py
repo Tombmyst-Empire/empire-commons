@@ -2,7 +2,7 @@
 Conditional helper functions and shortcuts
 """
 from enum import Enum
-from typing import Any, TypeVar
+from typing import Any, TypeVar, Type
 
 T = TypeVar('T')
 
@@ -37,3 +37,24 @@ def coalesce(*items: Any) -> Any | None:
             return item
 
     return None
+
+
+def or_raise(value: T, exception_type: Type[Exception], *exception_args, **exception_kwargs) -> T:
+    """
+    Returns *value* if not None otherwise, raises *exception_type with provided args + kwargs.
+    """
+    if value is None:
+        raise exception_type(*exception_args, **exception_kwargs)
+
+    return value
+
+
+def or_raise_broad(value: T, exception_type: Type[Exception], *exception_args, **exception_kwargs) -> T:
+    """
+    Returns *value* if it is a truthy value, otherwise, raises *exception_type with provided args + kwargs.
+    """
+
+    if not value:
+        raise exception_type(*exception_args, **exception_kwargs)
+
+    return value
