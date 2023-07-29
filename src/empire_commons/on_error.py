@@ -1,11 +1,12 @@
 """
 Error handling module.
 """
-
 import logging
 from enum import Enum, auto
 from functools import wraps
-from typing import Optional, Type, Any
+from typing import Optional, Type, Any, Callable, Protocol
+
+import ereport
 
 
 class OnError(Enum):
@@ -17,19 +18,48 @@ class OnError(Enum):
     IGNORE = auto()
 
 
-def handle_error(error: Exception, behavior: OnError, *, logger: Optional[logging.Logger] = None, message: str = None):
+def handle_error(error: Exception, behavior: OnError, *, reporter: Optional[ereport.Reporter] = None, message: str = None):
     """
     Error handling function.
     :param error: The exception instance
     :param behavior: The behavior to adopt.
-    :param logger: An instance of logger. If not provided uses the default logger
+    :param reporter: An instance of logger. If not provided uses the default logger
     :param message: A custom message to log
     """
     if behavior == OnError.LOG:
-        logger = logger or logging.getLogger()
-        logger.error(f'Error {format_error(error)}: {message}' if message else f'An error occurred: {format_error(error)}', stacklevel=2)
+        reporter = reporter or ereport.get_or_make_reporter()
+        reporter.error(f'Error {format_error(error)}: {message}' if message else f'An error occurred: {format_error(error)}')
     elif behavior == OnError.RAISE:
         raise error
+
+
+def handle_error2(
+        callable_: Callable,
+        *args,
+        on_error_behavior_: OnError = OnError.RAISE,
+        reporter_: ereport.Reporter | None = None,
+        message_: str = None,
+        **kwargs
+) -> Any:
+    """
+    Error handling function.
+    :param callable_: The callable to call. Star args and kw args are passed to it.
+    :param on_error_behavior_: The behavior to adopt.
+    :param reporter_: An instance of logger. If not provided uses the default logger
+    :param message_: A custom message to log
+    :returns: The return value of *callable_*
+    """
+    try:
+        return callable_(*args, **kwargs)
+    except Exception as error:
+        if on_error_behavior_ == OnError.LOG:
+            reporter = reporter_ or ereport.get_or_make_reporter()
+            reporter.error(f'Error {format_error(error)}: {message_}'
+                           if message_ else
+                           f'An error occurred in {callable_.__qualname__}: {format_error(error)}',
+                           stack_level=1)
+        elif on_error_behavior_ == OnError.RAISE:
+            raise error
 
 
 def format_error(error: Exception) -> str:
@@ -60,7 +90,7 @@ def catch(
             try:
                 return func(*args, **kwargs)
             except errors_to_catch as error:
-                handle_error(error, on_error or default_on_error_behavior, logger=logger, message=error_message)
+                handle_error(error, on_error or default_on_error_behavior, reporter=logger, message=error_message)
                 return value_to_return_on_error
         return wrapper
     return _catch
