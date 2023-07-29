@@ -1,9 +1,15 @@
+from enum import Enum, auto
 from typing import Any, Callable
 
 import ereport
 
 from empire_commons.functions import DefferedCall
 from empire_commons.on_error import OnError, handle_error2
+
+
+class ThenBreakValue(Enum):
+    CURRENT = auto()
+    LAST = auto()
 
 
 def accumulate_callables(initial_value: Any, *callables: Callable) -> Any:
@@ -26,7 +32,7 @@ def then(
         break_at_first_falsy_value: bool = False,
         on_error_behavior: OnError = OnError.RAISE,
         reporter: ereport.Reporter | None = None,
-        get_last_valid_result: bool = True
+        value_to_return_on_break: ThenBreakValue | Any = ThenBreakValue.LAST
 ) -> Any:
     """
     Calls sequentially each *deffered*.
@@ -36,9 +42,17 @@ def then(
     :param break_at_first_falsy_value: When set True, as soon that a *deffered* returns a falsy value, returns
     :param on_error_behavior: On error behavior
     :param reporter: Reporter instance to pass to on error handler
-    :param get_last_valid_result: When True, when a break configuration is encountered, returns last deffered result, otherwise, returns the current result
+    :param value_to_return_on_break: When a break condition occurs, returns either last value when *LAST*, current value when *CURRENT* or the provided value
     """
     last_result: Any = None
+
+    def _get_break_value(current_value_: Any):
+        if value_to_return_on_break == ThenBreakValue.LAST:
+            return last_result
+        elif value_to_return_on_break == ThenBreakValue.CURRENT:
+            return current_value_
+        else:
+            return value_to_return_on_break
 
     for a_deffered in deffered:
         current_result: Any = handle_error2(
@@ -50,11 +64,11 @@ def then(
         )
 
         if break_at_first_none and current_result is None:
-            return last_result if get_last_valid_result else current_result
+            return _get_break_value(current_result)
         elif break_at_first_false and current_result is False:
-            return last_result if get_last_valid_result else current_result
+            return _get_break_value(current_result)
         elif break_at_first_falsy_value and not current_result:
-            return last_result if get_last_valid_result else current_result
+            return _get_break_value(current_result)
 
         last_result = current_result
 
