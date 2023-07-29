@@ -37,14 +37,6 @@ class DefferedCall:
         #   show passed args+kwargs to function, and show function signature
         return self._callable(*(self._star_args + call_args), **(self._kwargs | call_kwargs))
 
-    def call_handle_errors(self, *call_args, on_error_behavior_: OnError, **call_kwargs) -> Any:
-        result: Any = None
-        try:
-            result = self.__call__(*call_args, **call_kwargs)
-        except Exception as error:
-
-
-
     def __repr__(self) -> str:
         return f'DefferedCall({self._callable}, {self._star_args}, {self._kwargs})'
 
