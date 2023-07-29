@@ -1,3 +1,5 @@
+from typing import Any
+
 from empire_commons.list_util import try_get
 from empire_commons.types_ import NULL
 
@@ -29,3 +31,10 @@ def dummy_that_returns_first_arg(*args, **kwargs):
             return kwarg
     else:
         return None
+
+
+def get_(value: Any) -> Any:
+    """
+    Returns *value*. Usefull in DefferedCalls and chaining of functions
+    """
+    return value
