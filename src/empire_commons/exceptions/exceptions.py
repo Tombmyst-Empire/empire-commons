@@ -7,6 +7,7 @@ from typing import Any
 __all__ = [
     'EmpireException',
     'HTTPException',
+    'InvalidValueException',
     'ProgrammingException',
     'UnknownValueException',
     'UnexpectedCoreException',
@@ -27,6 +28,11 @@ class EmpireException(Exception):
 class HTTPException(Exception):
     def __init__(self, result: 'HTTPResult'):
         super().__init__(f'Query failed with code {result.status_code}: {result.text[:1000]}')
+
+
+class InvalidValueException(Exception):
+    def __init__(self, what: str, should_be: Any, is_: Any):
+        super().__init__(f'Invalid value for "{what}": Should be {should_be} (type: {type(should_be).__name__}), not: {is_} (type: {type(is_).__name__})')
 
 
 class ProgrammingException(Exception):
@@ -60,3 +66,4 @@ class UnexpectedCoreException(EmpireException):
 class UnexpectedException(EmpireException):
     def __init__(self, message: str):
         super().__init__(f'Unexpected state: {message}')
+
