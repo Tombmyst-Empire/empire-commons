@@ -40,7 +40,9 @@ class InvalidValueException(Exception):
     - should_be_info: a string explaining what the value can be (example, "between 0 and 1")
     """
     def __init__(self, what: str, is_: Any, should_be_info: str = NULL, should_be: Any = NULL):
-        super().__init__(f'Invalid value for "{what}": Should be {should_be or should_be_info} (type: {type(should_be).__name__}), not: {is_} (type: {type(is_).__name__})')
+       effective_should_be: str = should_be if should_be != NULL else f'"{should_be_info}"'
+
+        super().__init__(f'Invalid value for "{what}": Should be {effective_should_be} (type: {type(should_be).__name__}), not: {is_} (type: {type(is_).__name__})')
 
 
 class ProgrammingException(Exception):
