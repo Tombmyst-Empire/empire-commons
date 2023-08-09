@@ -73,3 +73,10 @@ def then(
         last_result = current_result
 
     return last_result
+
+
+def to_closure(function: Callable, *args, **kwargs) -> Callable:
+    def _closure():
+        return function(*args, **kwargs)
+
+    return _closure
